@@ -80,19 +80,28 @@ public class Main {
 		 * - 시계 방향 기준 [1,0]으로부터 거리가 상점 > 동근일 때 : 시계(동근 index) + 반시계(상점 index) 
 		 */
 		for (int i=0; i<clockwise.length; i++) {
-			int cw_dong = Math.abs(clockwise[i]-dong_cwIndex); // 시계 방향으로 돌 때 상점 - 동근 절댓값을 임시 변수에 저
-			int acw_dong;
-			if ((clockwise[i] - dong_cwIndex)>0) {
-				acw_dong = dong_cwIndex + anticlockwise[i];
+			int cw_dong, acw_dong;
+			if (dong_cwIndex > clockwise[i]) {
+				cw_dong = clockwise[i] + dong_acwIndex;
+				acw_dong = dong_cwIndex - clockwise[i];
 			} else {
-				acw_dong = dong_acwIndex + clockwise[i];
+				cw_dong = clockwise[i] - dong_cwIndex;
+				acw_dong = anticlockwise[i] + dong_cwIndex;
 			}
-			
-			if (cw_dong < acw_dong) {
-				result += cw_dong;
-			} else {
-				result += acw_dong;
-			}
+			result += Math.min(cw_dong, acw_dong);
+//			int cw_dong = Math.abs(clockwise[i]-dong_cwIndex); // 시계 방향으로 돌 때 상점 - 동근 절댓값을 임시 변수에 저
+//			int acw_dong;
+//			if ((clockwise[i] - dong_cwIndex)>0) {
+//				acw_dong = dong_cwIndex + anticlockwise[i];
+//			} else {
+//				acw_dong = dong_acwIndex + clockwise[i];
+//			}
+//			
+//			if (cw_dong < acw_dong) {
+//				result += cw_dong;
+//			} else {
+//				result += acw_dong;
+//			}
 		}
 		System.out.println(result);
 		sc.close();
