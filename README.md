@@ -16,4 +16,4 @@
 - 2024.06.30. Mon
   - Baekjoon 10026 (Gold 5, DFS/BFS) https://www.acmicpc.net/problem/10026
   - Baekjoon 1926 (Silver 1, DFS/BFS) https://www.acmicpc.net/problem/1926
-  - 
+  - Baekjoon 14502 (Gold 4, DFS/BFS) https://www.acmicpc.net/problem/14502
