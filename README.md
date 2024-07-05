@@ -13,7 +13,10 @@
   - Baekjoon 5557 (Gold 5, DP) https://www.acmicpc.net/problem/5557
   - Baekjoon 2294 (Gold 5, DP) https://www.acmicpc.net/problem/2294
   - Baekjoon 2169 (Gold 2, DP) https://www.acmicpc.net/problem/2169
-- 2024.06.30. Mon
+- 2024.07.01. Mon
   - [PT] Baekjoon 10026 (Gold 5, DFS/BFS) https://www.acmicpc.net/problem/10026
   - Baekjoon 1926 (Silver 1, DFS/BFS) https://www.acmicpc.net/problem/1926
   - Baekjoon 14502 (Gold 4, DFS/BFS) https://www.acmicpc.net/problem/14502
+- 2024.07.04. Thu
+  - Baekjoon 2667 (Silver 1, DFS/BFS) https://www.acmicpc.net/problem/2667
+  - Baekjoon 2636 (Gold 4, DFS/BFS) https://www.acmicpc.net/problem/2636
