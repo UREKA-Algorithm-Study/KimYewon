@@ -20,3 +20,6 @@
 - 2024.07.04. Thu
   - Baekjoon 2667 (Silver 1, DFS/BFS) https://www.acmicpc.net/problem/2667
   - Baekjoon 2636 (Gold 4, DFS/BFS) https://www.acmicpc.net/problem/2636
+- 2024.07.08. Mon
+  - [PT] Baekjoon 2467 (Gold 5, Binary Search) https://www.acmicpc.net/problem/2467
+  - Baekjoon 2295 (Gold 4, Binary Search) https://www.acmicpc.net/problem/2295
