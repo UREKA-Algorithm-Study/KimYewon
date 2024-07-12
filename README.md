@@ -23,3 +23,6 @@
 - 2024.07.08. Mon
   - [PT] Baekjoon 2467 (Gold 5, Binary Search) https://www.acmicpc.net/problem/2467
   - Baekjoon 2295 (Gold 4, Binary Search) https://www.acmicpc.net/problem/2295
+- 2024.07.11. Thu
+  - Baekjoon 2512 (Silver 2, Binary Search, 구현) https://www.acmicpc.net/problem/2512
+  - Baekjoon 3020 (Gold 5, Binary Search) https://www.acmicpc.net/problem/3020 (구현으로 풂 - 시간 초과)
