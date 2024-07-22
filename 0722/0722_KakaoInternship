@@ -1,0 +1,116 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+class Solution {
+    private int idx;
+    private int n;
+    private int[] arr;
+    private int[][] AChoice, BChoice;
+    private int[][] dice;
+    public int[] solution(int[][] dice) {
+        this.dice = dice;
+        this.n = dice.length; // 주사위 배열의 길이 (2 또는 4 또는 6 등)
+        this.idx = 0;
+        this.arr = new int[n / 2]; // 조합 메서드 실행을 위한 임시 배열 생성
+        Combi(0, 1);
+        this.AChoice = new int[idx][n / 2];
+        this.BChoice = new int[idx][n / 2];
+        this.idx = 0; // combination 메서드 실행을 위해 0으로 초기화
+        Combination(0, 1);
+        int max = 0;
+        int ans = 0;
+        for (int i = 0; i < AChoice.length; i++) {
+            int[][] ADices = new int[n / 2][6];
+            ADices = returnArr(AChoice[i]);
+            int[][] BDices = new int[n / 2][6];
+            BDices = returnArr(BChoice[i]);
+            ArrayList<Integer> A_hap = new ArrayList<>();
+            ArrayList<Integer> B_hap = new ArrayList<>();
+            calculateSums(ADices, 0, 0, A_hap);
+            calculateSums(BDices, 0, 0, B_hap);
+            int win = 0;
+            Collections.sort(A_hap);
+			Collections.sort(B_hap);
+			for (int j=0; j<A_hap.size(); j++) {
+				int a = A_hap.get(j);
+				int start = 0;
+				int end = B_hap.size()-1;
+				while (start <= end) {
+					int mid = (start + end) / 2;
+					if (B_hap.get(mid) < a) {
+						start = mid + 1;
+					} else {
+						end = mid-1;
+					}
+				}
+				win += start;
+			}
+            if (win > max) {
+                max = win;
+                ans = i;
+            }
+        }
+        return AChoice[ans];
+    }
+    
+    private void calculateSums(int[][] dices, int cnt, int currSum, ArrayList<Integer> hap) {
+        if (cnt == dices.length) {
+            hap.add(currSum);
+            return;
+        }
+        for (int i = 0; i < dices[cnt].length; i++) {
+            calculateSums(dices, cnt + 1, currSum + dices[cnt][i], hap);
+        }
+    }
+    
+    private int[][] returnArr(int[] chosen) {
+        int[][] result = new int[n / 2][6];
+        for (int i = 0; i < chosen.length; i++) {
+            for (int j = 0; j < 6; j++) {
+                result[i][j] = dice[chosen[i] - 1][j];
+            }
+        }
+        return result;
+    }
+    
+    private void Combi(int cnt, int start) {
+        if (cnt == n / 2) {
+            idx++;
+            return;
+        }
+        for (int i = start; i <= n; i++) {
+            arr[cnt] = i;
+            Combi(cnt + 1, i + 1);
+        }
+    }
+    
+    private void Combination(int cnt, int start) {
+        if (cnt == n / 2) {
+            for (int i = 0; i < arr.length; i++) {
+                AChoice[idx][i] = arr[i];
+            }
+            
+            int bidx = 0;
+            for (int i = 1; i <= n; i++) {
+                if (!contains(arr, i)) {
+                    BChoice[idx][bidx++] = i;
+                }
+            }
+            idx++;
+            return;
+        }
+        for (int i = start; i <= n; i++) {
+            arr[cnt] = i;
+            Combination(cnt + 1, i + 1);
+        }
+    }
+    
+    private boolean contains(int[] arr, int x) {
+        for (int a : arr) {
+            if (a == x) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
